@@ -94,24 +94,19 @@ class _PriceScreenState extends State<PriceScreen> {
       }
       else
       {
-        print(coinData);
         if(cryptoList[i]=='BTC')
           {
-            cryptoCurr=coinData['asset_id_base'];
             cryptoRate=coinData['rate'];
           }
-        else if (cryptoList[i]=='ETH')
+        else if(cryptoList[i]=='ETH')
           {
-            cryptoCurr1=coinData['asset_id_base'];
             cryptoRate1=coinData['rate'];
           }
-        else if (cryptoList[i]=='LTC')
-        {
-          cryptoCurr2=coinData['asset_id_base'];
-          cryptoRate2=coinData['rate'];
-        }
+        else if(cryptoList[i]=='LTC')
+          {
+            cryptoRate2=coinData['rate'];
+          }
       }
-
     }
   }
   @override
@@ -124,6 +119,31 @@ class _PriceScreenState extends State<PriceScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          Center(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
+                child: Card(
+                  color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 28.0),
+                    child: Text(
+                      '1 BTC = $cryptoRate $selectedCurrency',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
             child: Card(
@@ -133,9 +153,9 @@ class _PriceScreenState extends State<PriceScreen> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+                padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 28.0),
                 child: Text(
-                  '1 $cryptoCurr = $cryptoRate $selectedCurrency',
+                  '1 ETH = $cryptoRate1 $selectedCurrency',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.0,
@@ -154,9 +174,9 @@ class _PriceScreenState extends State<PriceScreen> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+                padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 28.0),
                 child: Text(
-                  '1 ETH = $cryptoRate $selectedCurrency',
+                  '1 LTC = $cryptoRate2 $selectedCurrency',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.0,
@@ -167,7 +187,7 @@ class _PriceScreenState extends State<PriceScreen> {
             ),
           ),
           Container(
-            height: 150.0,
+            height: 50.0,
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
             color: Colors.lightBlue,

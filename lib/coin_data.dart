@@ -41,7 +41,7 @@ class CoinData
     NetworkHelper networkHelper=NetworkHelper(url);
 
     var coinData= await networkHelper.getData();
-    print(url);
+    // print(url);
     return coinData;
   }
 }
